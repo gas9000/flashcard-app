@@ -1,4 +1,4 @@
-# Flashcard App API Documentation
+# Flashcard app API documentation
 
 ## Authentication
 
@@ -15,9 +15,11 @@ http://localhost:3000/api
 ### Categories
 
 #### GET /categories
+
 Get all categories for the authenticated user.
 
 **Response:**
+
 ```json
 [
   {
@@ -37,6 +39,7 @@ Get a specific category by ID.
 Create a new category.
 
 **Request Body:**
+
 ```json
 {
   "name": "Programming",
@@ -45,9 +48,11 @@ Create a new category.
 ```
 
 #### PUT /categories/:id
+
 Update a category.
 
 **Request Body:**
+
 ```json
 {
   "name": "Updated Name",
@@ -56,6 +61,7 @@ Update a category.
 ```
 
 #### DELETE /categories/:id
+
 Delete a category.
 
 ---
@@ -63,12 +69,15 @@ Delete a category.
 ### Decks
 
 #### GET /decks
+
 Get all decks for the authenticated user.
 
 **Query Parameters:**
+
 - `categoryId` (optional): Filter by category ID
 
 **Response:**
+
 ```json
 [
   {
@@ -85,12 +94,15 @@ Get all decks for the authenticated user.
 ```
 
 #### GET /decks/:id
+
 Get a specific deck by ID with card count.
 
 #### POST /decks
+
 Create a new deck.
 
 **Request Body:**
+
 ```json
 {
   "name": "Japanese Kanji",
@@ -100,9 +112,11 @@ Create a new deck.
 ```
 
 #### PUT /decks/:id
+
 Update a deck.
 
 **Request Body:**
+
 ```json
 {
   "name": "Updated Deck Name",
@@ -112,6 +126,7 @@ Update a deck.
 ```
 
 #### DELETE /decks/:id
+
 Delete a deck (cascades to cards and reviews).
 
 ---
@@ -119,12 +134,15 @@ Delete a deck (cascades to cards and reviews).
 ### Cards
 
 #### GET /cards
+
 Get all cards in a deck.
 
 **Query Parameters:**
+
 - `deckId` (required): The deck ID
 
 **Response:**
+
 ```json
 [
   {
@@ -140,12 +158,15 @@ Get all cards in a deck.
 ```
 
 #### GET /cards/:id
+
 Get a specific card by ID.
 
 #### POST /cards
+
 Create a new card.
 
 **Request Body:**
+
 ```json
 {
   "deckId": 1,
@@ -156,9 +177,11 @@ Create a new card.
 ```
 
 #### PUT /cards/:id
+
 Update a card.
 
 **Request Body:**
+
 ```json
 {
   "front": "Updated front",
@@ -294,6 +317,7 @@ All endpoints return errors in the following format:
 ```
 
 Common HTTP status codes:
+
 - `200` - Success
 - `201` - Created
 - `400` - Bad Request (validation error)

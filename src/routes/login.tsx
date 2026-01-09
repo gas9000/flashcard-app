@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { signIn, useSession } from '@/lib/auth-client'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -19,10 +19,11 @@ function LoginPage() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
-  if (session) {
-    navigate({ to: '/dashboard' })
-    return null
-  }
+  useEffect(() => {
+    if (session) {
+      navigate({ to: '/dashboard' })
+    }
+  }, [session, navigate])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
