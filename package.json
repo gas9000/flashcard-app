@@ -5,6 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "server": "bun run src/server/index.ts",
+    "db:check": "bun run scripts/check-db.ts",
+    "db:clear": "bun run scripts/clear-db.ts",
+    "db:studio": "drizzle-kit studio --port 4000",
+    "db:migrate": "bun run src/server/db/migrate.ts",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -39,6 +44,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
     "autoprefixer": "^10.4.23",
+    "better-sqlite3": "^12.5.0",
     "drizzle-kit": "^0.31.8",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
